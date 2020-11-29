@@ -72,6 +72,9 @@ define([
 		ShowBookmarkPaths: {
 			Key: "showBookmarkPaths"
 		},
+		NavigateRecentsWithPopup: {
+			Key: "navigateRecentsWithPopup"
+		},
 		Shortcuts: {
 			Key: "shortcuts",
 			MRUSelect: "mruSelect",
