@@ -12,9 +12,9 @@ define([
 		["PageDown", () => self.resultsList.scrollByPage("down")],
 		[["Enter", "shift+Enter"], event => openItem(event, false)],
 		[["mod+Enter", "mod+shift+Enter"], event => openItem(event, true)],
-		["Escape", event => self.clearQuery(event.target.value)],
 			// stop ctrl/cmd-F from opening the find menu
 		["mod+F", () => {}],
+		["Escape", event => self.clearQuery(event.target.value)],
 		[["Home", "End"], event => {
 			if (self.settings[k.HomeEndBehavior.Key] == k.HomeEndBehavior.ResultsList) {
 				if (event.key == "Home") {
