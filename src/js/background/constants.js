@@ -63,6 +63,8 @@ define([
 			SelectPreviousItem: "selectPreviousItem",
 			SelectNextItem: "selectNextItem",
 			EscapeBehavior: "escapeBehavior",
+			JumpBackTab: "jumpBackTab",
+			JumpForwardTab: "jumpForwardTab",
 		}
 	}));
 });
