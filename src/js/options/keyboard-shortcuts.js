@@ -123,16 +123,6 @@ define([
 				label: <span>Act as another <b>escape</b> key.</span>,
 				validate: validateSomeModifier
 			},
-			{
-				id: k.Shortcuts.JumpBackTab,
-				label: <span>Jump <b>back</b> one in the tab stack.</span>,
-				validate: validateSomeModifier
-			},
-			{
-				id: k.Shortcuts.JumpForwardTab,
-				label: <span>Jump <b>forward</b> one in the tab stack.</span>,
-				validate: validateSomeModifier
-			},
 		],
 		fixed: [
 			{
