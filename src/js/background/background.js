@@ -122,6 +122,7 @@ DEBUG && console.log("== onStartup");
 require([
 	"cp",
 	"background/recent-tabs",
+	"background/tab-jump-list",
 	"background/page-trackers",
 	"background/quickey-storage",
 	"background/settings",
@@ -129,11 +130,13 @@ require([
 ], function(
 	cp,
 	recentTabs,
+	tabJumpList,
 	trackers,
 	storage,
 	settings,
 	k
 ) {
+	console.log(`XXX recentTabs: `, tabJumpList);
 	const backgroundTracker = trackers.background;
 	let tabCount = 0;
 	let popupIsOpen = false;
@@ -206,6 +209,16 @@ require([
 
 			case "30-toggle-recent-tabs":
 				toggleRecentTabs(true);
+				break;
+
+			case "jump-back-tab":
+				console.log(`XXX jump-back-tab triggered`);
+				tabJumpList.tabJumpList.jumpBackTab();
+				break;
+
+			case "jump-forward-tab":
+				console.log(`XXX jump-forward-tab triggered`);
+				tabJumpList.tabJumpList.jumpForwardTab();
 				break;
 		}
 	}

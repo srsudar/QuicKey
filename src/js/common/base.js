@@ -9,5 +9,6 @@ define([
 	"background/quickey-storage",
 	"background/settings",
 	"background/recent-tabs",
+	"background/tab-jump-list",
 	"background/page-trackers",
 ], () => {});

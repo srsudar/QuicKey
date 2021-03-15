@@ -57,6 +57,12 @@
 			},
 			"description": "Switch to the next tab"
 		},
+		"jump-back-tab": {
+			"description": "Jump back one tab in the stack."
+		},
+		"jump-forward-tab": {
+			"description": "Jump forward one tab in the stack."
+		},
 		"30-toggle-recent-tabs": {
 			"suggested_key": {
 				"default": "Alt+Z",

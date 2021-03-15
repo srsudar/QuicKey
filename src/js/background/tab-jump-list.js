@@ -1,6 +1,10 @@
-define([], function() {
-// This is modeled/taken on/from bg_utils.js in vimium.
+define([
+  "shared"
+], function(
+  shared
+) {
 
+// This is modeled/taken on/from bg_utils.js in vimium.
 const TIME_DELTA = 250; // Milliseconds.
 
 // TabRecency associates a logical timestamp with each tab id.  These are used to provide an initial
@@ -36,7 +40,7 @@ class TabRecency {
   }
 
   selectSpecificTab(tabId) {
-    chrome.tabs.get(request.id, function(tab) {
+    chrome.tabs.get(tabId, function(tab) {
       if (chrome.windows != null) {
         chrome.windows.update(tab.windowId, { focused: true });
       }
@@ -45,6 +49,7 @@ class TabRecency {
   }
 
   jumpBackTab() {
+    console.log(`XXX jump back tab`);
     let backTabId = -1;
     if (!this.jumpList) {
       // getTabsByRecency might not include the current tab, eg if it was just
@@ -64,6 +69,7 @@ class TabRecency {
   }
 
   jumpForwardTab() {
+    console.log(`XXX jump forward tab`);
     let forwardTabId = -1;
     if (this.jumpList) {
       forwardTabId = this.jumpList.getJumpForwardTabId();
@@ -139,9 +145,9 @@ class TabJumpList {
     return false;
   }
 
-  getJumpBackTabId({count = 1}) {
+  getJumpBackTabId() {
     let candidateIdx = -1;
-    let need = count;
+    let need = 1; // vestige of count support in vimium implementation
     for (let i = this.activeIdx - 1; i >= 0; i--) {
       let candidateId = this.tabs[i];
       if (this.deletedTabs.has(candidateId)) {
@@ -163,9 +169,9 @@ class TabJumpList {
     return this.tabs[this.activeIdx];
   }
 
-  getJumpForwardTabId({count = 1}) {
+  getJumpForwardTabId() {
     let candidateIdx = -1;
-    let need = count;
+    let need = 1; // vestige of count support in vimium implementation
     for (let i = this.activeIdx + 1; i < this.tabs.length; i++) {
       let candidateId = this.tabs[i];
       if (this.deletedTabs.has(candidateId)) {
@@ -188,10 +194,10 @@ class TabJumpList {
   }
 }
 
-let TabRecency = new TabRecency();
+let tabJumpList = new TabRecency();
 
-return shared('tabRecency', {
-  tabRecency,
+return shared('tabJumpList', {
+  tabJumpList,
 });
 });
 
